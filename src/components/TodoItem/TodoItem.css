@@ -1,0 +1,83 @@
+.TodoItem {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  padding: 8px 12px;
+  background-color: #3C3E44;
+  border-radius: 12px;
+  color: white;
+  display: grid;
+  grid-template-columns: 20px 1fr 30px;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.wrapper {
+  position: relative;
+}
+
+input[type="checkbox"]:not(old) {
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+input[type="checkbox"]:not(old) + label::-moz-selection,
+input[type="checkbox"]:not(old) + label::selection {
+  color: inherit;
+  background-color: transparent;
+}
+
+input[type="checkbox"]:not(old) + label {
+  cursor: pointer;
+}
+
+input[type="checkbox"]:not(old) + label:before {
+  content: '';
+  width: 15px;
+  height: 15px;
+  border: 2px solid #f5b00e;
+  border-radius: 6px;
+  cursor: pointer;
+  vertical-align: top;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+input[type="checkbox"]:not(old):checked + label:before {
+  content: '✔';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5b00e;
+}
+
+.TodoItem span {
+  justify-self: center;
+  cursor: pointer;
+}
+
+.TodoItem span img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.TodoItem--checked input[type="checkbox"]:not(old) + label:before {
+  content: '✔';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5b00e;
+}
+
+.TodoItem--checked {
+  opacity: .5;
+}
+
+.TodoItem--checked p {
+  text-decoration: line-through;
+}

@@ -1,0 +1,18 @@
+.CreateItemButton {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: #f5b00e;
+  border-radius: 50%;
+  font-size: 2.8rem;
+  color: #fff;
+  position: fixed;
+  left: 50%;
+  bottom: 70px;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.CreateItemButton:hover {
+  background-color: #db9a01;
+}

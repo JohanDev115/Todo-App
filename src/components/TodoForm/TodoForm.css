@@ -1,0 +1,72 @@
+.TodoForm {
+  background-color: #3C3E44;
+  width: 80%;
+  max-width: 320px;
+  text-align: center;
+  padding: 20px;
+}
+
+.TodoForm h2 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+
+.TodoForm textarea {
+  width: 100%;
+  border-radius: 10px;
+  padding: 6px;
+  background-color: #292a2b;
+  border: none;
+  margin-bottom: 16px;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  resize: none;
+}
+
+.TodoForm textarea:hover,
+.TodoForm textarea:focus {
+  outline: 4px solid #f5b00e;
+}
+
+.TodoForm div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.TodoForm p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #BB2D3B;
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.button {
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 1.4rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+}
+
+.button:hover {
+  opacity: .8;
+}
+
+.button--cancel {
+  background-color: #BB2D3B;
+}
+
+.button--create {
+  background-color: #f5b00e;
+  color: #000;
+}
+
+.button:disabled {
+  opacity: .5;
+}

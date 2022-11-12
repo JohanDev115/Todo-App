@@ -1,0 +1,20 @@
+.TodoSearch {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 30px;
+  font-size: 1.6rem;
+  outline: none;
+  border: none;
+  border-radius: 12px;
+  margin-bottom: 26px;
+  background-color: #3C3E44;
+  color: #fff;
+}
+
+.TodoSearch:hover,
+.TodoSearch:focus {
+  outline: 4px solid #f5b00e;
+}
