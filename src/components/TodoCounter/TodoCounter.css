@@ -1,6 +1,17 @@
 .TodoCounter {
+  margin-bottom: 24px;
   font-size: 1.6rem;
-  margin-bottom: 40px;
   color: #fff;
   text-align: center;
+}
+
+.TodoCounter--loading {
+  display: inline-block;
+  width: 280px;
+  height: 24px;
+  border-radius: 10px;
+  color: transparent;
+  background: linear-gradient(90deg, #9c9c9e, #3C3E44);
+  background-size: 400% 400%;
+  animation: loadingAnimation 2s ease-in-out infinite;
 }

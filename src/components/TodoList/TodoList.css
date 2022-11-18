@@ -3,6 +3,13 @@
   margin-bottom: 100px;
 }
 
+.TodoList h2 {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+  color: #fff;
+  text-align: center;
+}
+
 .TodoList ul {
   list-style: none;
 }

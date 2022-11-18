@@ -1,16 +1,20 @@
 import React from 'react';
-import { TodoContext } from '../TodoContext';
 import './TodoSearch.css';
 
-function TodoSearch() {
-  const { searchValue, setSearchValue } = React.useContext(TodoContext);
+function TodoSearch({ searchValue, setSearchValue, loading }) {
 
   const searchValueChange = (evt) => {
     setSearchValue(evt.target.value);
   }
 
   return (
-    <input onChange={searchValueChange} className='TodoSearch' placeholder="search task..." value={searchValue}/>
+    <input 
+      className={`TodoSearch ${loading ? 'TodoSearch--loading' : undefined}`} 
+      placeholder="search task..." 
+      value={searchValue}
+      onChange={searchValueChange}
+      disabled={loading}
+    />
   )
 }
 

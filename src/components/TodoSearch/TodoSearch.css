@@ -18,3 +18,13 @@
 .TodoSearch:focus {
   outline: 4px solid #f5b00e;
 }
+
+.TodoSearch--loading::placeholder {
+  color: transparent;
+}
+
+.TodoSearch--loading {
+  background: linear-gradient(90deg, #9c9c9e, #3C3E44);
+  background-size: 400% 400%;
+  animation: loadingAnimation 2s ease-in-out infinite;
+}
