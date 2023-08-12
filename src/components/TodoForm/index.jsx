@@ -1,37 +1,34 @@
 import React from "react";
 import './TodoForm.css';
+import { useNavigate } from "react-router-dom";
 
-function TodoForm({ addTodos, setOpenModal, searchedTodos }) {
-  const [todoExist, setTodoExist] = React.useState(false);
-  const [newTodoValue, setNewTodoValue] = React.useState('');
+function TodoForm(props) {
+
+  const navigate = useNavigate();
+
+  const [newTodoValue, setNewTodoValue] = React.useState(props.currentValue);
 
   const change = (evt) => {
     setNewTodoValue(evt.target.value);
   }
 
   const cancel = () => {
-    setOpenModal(false);
+    navigate('/')
   }
 
   const create = (evt) => {
     evt.preventDefault();
-    const exist = !!searchedTodos.filter(todo => todo.text.trim() == newTodoValue.trim()).length;
-    if (exist) {
-      setTodoExist(true);
-    } else {
-      addTodos(newTodoValue);
-      setOpenModal(false);
-    }
+    props.submitEvent(newTodoValue);
+    navigate('/')
   }
 
   return (
     <form className="TodoForm" onSubmit={create}>
-      <h2>Create task</h2>
-      {(todoExist) && <p>This task already exist</p>}
-      <textarea autoFocus value={newTodoValue} onChange={change} cols="30" rows="5" placeholder="Follow JohanDev on github."></textarea>
+      <h2>{props.title}</h2>
+      <textarea autoFocus value={newTodoValue} onChange={change} cols="30" rows="8" placeholder="Follow JohanDev on github."></textarea>
       <div>
         <button className="button button--cancel" type="button" onClick={cancel}>Cancel</button>
-        <button className="button button--create" type="submit" disabled={!newTodoValue}>Create</button>
+        <button className="button button--create" type="submit" disabled={!newTodoValue}>{props.submitText}</button>
       </div>
     </form>
   );

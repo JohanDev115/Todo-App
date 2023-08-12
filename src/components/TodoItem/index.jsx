@@ -1,6 +1,7 @@
 import React from "react";
 import './TodoItem.css';
 import trashIcon from '../../assets/basura.svg';
+import editIcon from '../../assets/editar.png';
 
 function TodoItem(props) {
   return (
@@ -10,6 +11,7 @@ function TodoItem(props) {
         <label></label>
       </div>
       <p>{props.text}</p>
+      <span onClick={props.edit}><img src={editIcon} alt="Edit task" /></span>
       <span onClick={props.delete}><img src={trashIcon} alt="Delete task" /></span>
     </li>
   );

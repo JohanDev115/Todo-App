@@ -2,15 +2,14 @@ import React from "react";
 import useLocalStorage from './useLocalStorage';
 
 function useTodos() {
-  const { 
-    item: todos, 
-    saveItem: saveTodos, 
+  const {
+    item: todos,
+    saveItem: saveTodos,
     sincronizeItem: sincronizeTodos,
     loading,
     error,
-  } = useLocalStorage('TODOS_V1', []);
+  } = useLocalStorage('TODOS_V2', []);
   const [searchValue, setSearchValue] = React.useState('');
-  const [openModal, setOpenModal] = React.useState(false);
 
   const totalTodos = todos.length;
   const lenCompletedTodos = todos.filter(todo => !!todo.completed).length;
@@ -32,27 +31,41 @@ function useTodos() {
   }
 
   const addTodos = (text) => {
+    const id = crypto.randomUUID();
     const newTodos = [...todos];
     newTodos.push({
       text,
-      completed: false
+      completed: false,
+      id,
     })
     saveTodos(newTodos);
   }
 
-  const completeTodos = (text, itemChecked) => {
-    const todoIndex = todos.findIndex(todo => todo.text == text);
+  const getTodo = (id) => {
+    return todos.find(todo => todo.id == id);
+  }
+
+  const completeTodos = (id, itemChecked) => {
+    const todoIndex = todos.findIndex(todo => todo.id == id);
 
     const newTodos = [...todos];
     newTodos[todoIndex].completed = itemChecked;
     saveTodos(newTodos);
   }
 
-  const deleteTodos = (text) => {
-    const todoIndex = todos.findIndex(todo => todo.text == text);
+  const deleteTodos = (id) => {
+    const todoIndex = todos.findIndex(todo => todo.id == id);
 
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
+    saveTodos(newTodos);
+  }
+
+  const editTodos = (id, newText) => {
+    const todoIndex = todos.findIndex(todo => todo.id == id);
+
+    const newTodos = [...todos];
+    newTodos[todoIndex].text = newText;
     saveTodos(newTodos);
   }
 
@@ -67,9 +80,9 @@ function useTodos() {
     addTodos,
     completeTodos,
     deleteTodos,
+    editTodos,
+    getTodo,
     showCompletedTaskText,
-    openModal,
-    setOpenModal,
     sincronizeTodos
   }
 }

@@ -1,13 +1,13 @@
 import React from "react";
 import './CreateItemButton.css';
+import { useNavigate } from "react-router-dom";
 
-function CreateItemButton(props) {
-  const openModalEvent = () => {
-    props.setOpenModal(true);
-  }
+function CreateItemButton() {
+
+  const navigate = useNavigate();
 
   return (
-    <button className="CreateItemButton" onClick={openModalEvent}>+</button>
+    <button className="CreateItemButton" onClick={() => navigate('/new')}>+</button>
   );
 }
 

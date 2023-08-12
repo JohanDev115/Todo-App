@@ -6,9 +6,15 @@
   border-radius: 12px;
   color: white;
   display: grid;
-  grid-template-columns: 20px 1fr 30px;
+  grid-template-columns: 20px 1fr 10px 30px;
   column-gap: 10px;
   align-items: center;
+  word-wrap: break-word;
+}
+
+p {
+  padding-right: 8px;
+  overflow: hidden;
 }
 
 .wrapper {
